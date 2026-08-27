@@ -30,7 +30,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         padding: 20
     },
-    form: {},
-    title:{},
-    input:{}
+    form: {
+        padding: 10,
+        borderRadius: 12,
+        backgroundColor: '#eee'
+    },
+    title:{
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20
+    },
+    input:{
+        borderWidth: 1,
+        borderColor: "#aaa",
+        padding: 10,
+        marginBottom: 12, 
+        borderRadius: 8
+
+    }
 })
