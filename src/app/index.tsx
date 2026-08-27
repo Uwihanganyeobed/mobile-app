@@ -1,14 +1,58 @@
-import {StyleSheet,View, Text, Image, Button} from 'react-native'
+import IconsExample from '@/components/IconsExample';
+import ModalExample from '@/components/ModalExample';
+import { router } from 'expo-router';
+import React from 'react';
+import {StyleSheet,View, Text, Image, Button, Touchable, TouchableOpacity} from 'react-native'
 
 export default function Index() {
+  //function to increment,decrement,reset a count
+  const [state, setState] = React.useState(0);
+
+  const increment = () => {
+    setState(state + 1);
+  }
+
+  const decrement = () => {
+    setState(state - 1);
+  }
+
+  const reset = () => {
+    setState(0);
+  }
   return (
     <View style={styles.container}>
+        <IconsExample />
+        <ModalExample />
+      <Button title="open Dashboard" color="orange"
+      onPress = {()=>router.push('/dashboard')}
+      />
 
-    <Button
-    title="Submit"
+      <View>
+        <Text >Count is {state}</Text>
+          <Button
+    title="Increment"
     color="green"
-    onPress={()=> alert('Button Pressed!')}
+    onPress={increment}
     />
+      <Button
+    title="Decrement"
+    color="red"
+    onPress={decrement}
+    />
+      <Button
+    title="Reset"
+    color="yellow"
+    onPress={reset}
+    />
+      </View>
+
+    <TouchableOpacity
+    style={{backgroundColor: 'pink', padding: 10,
+       borderRadius: 5, marginTop: 20}}
+    onPress={()=>router.push('/login')}
+    >
+      <Text>Get Started</Text>
+    </TouchableOpacity>
 
       <Text style={styles.textStyle}>Hello, World!</Text>
 
